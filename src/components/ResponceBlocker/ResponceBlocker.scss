@@ -1,0 +1,28 @@
+.responceBlock {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: $c-black;
+  color: $c-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: VW(30);
+
+  @include forDesktop {
+    display: none;
+  }
+
+  .title {
+    letter-spacing: -.2vw;
+    padding: 0 4vw;
+  }
+  
+  h2 {
+    font-size: VW(60);
+    letter-spacing: -.2vw;
+    font-weight: normal;
+  }
+}

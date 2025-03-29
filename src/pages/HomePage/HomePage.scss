@@ -1,0 +1,15 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: VW(10);
+
+  .logo {
+    width: VW(580);
+    height: VW(120);
+    position: relative;
+  }
+}
