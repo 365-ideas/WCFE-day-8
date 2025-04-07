@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header/Header";
 import Loader from "@/components/Loader/Loader";
 import { LoaderContext } from "@/providers/LoaderProvider/LoaderProvider";
 import { AnimatePresence } from "framer-motion";
@@ -10,10 +11,11 @@ export const Root = ({ children }) => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {!loaderFinished && <Loader />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       <AnimatePresence mode="wait">
+        <Header />
         {children}
       </AnimatePresence>
     </>

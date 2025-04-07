@@ -1,15 +1,162 @@
 .home {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: VW(10);
 
-  .logo {
-    width: VW(580);
-    height: VW(120);
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .search-button {
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &__title {
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+
+      @include hover {
+        opacity: 1;
+      }
+    }
+
+    &__input {
+      cursor: pointer;
+      @extend %h1;
+      outline: none;
+      border: none;
+
+      width: 70%;
+
+      background: transparent;
+    }
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: VW(150);
+  }
+
+  .search {
+    &__input {
+      @extend %h1;
+      outline: none;
+      border: none;
+  
+      width: 80%;
+      background: transparent;
+
+      &--terrorist {
+        color: red;
+      }
+    }
+
+    &-results {
+      height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: VW(150); // Make room for the fade
+  
+      &::-webkit-scrollbar {
+        display: none; // Hide scrollbar on webkit browsers
+      }
+  
+      &-wrapper {
+        position: relative;
+        height: VW(450);
+        padding-top: VW(20);
+        overflow: hidden;
+  
+        .fade {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: VW(150);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+          );
+          z-index: 100;
+          pointer-events: none;
+        }
+      }
+  
+      &__list {
+        padding-bottom: VW(60);
+        display: flex;
+        flex-direction: column;
+        gap: VW(10);
+      }
+    }
+
+    &__close-button {
+      width: VW(70);
+      height: VW(70);
+  
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+  
+      @include hover {
+        opacity: 0.5 !important;
+      }
+  
+      &-icon {
+        width: 100%;
+        height: 100%;
+      }
+    }  
+  }
+
+  .terrorist-state {
     position: relative;
+    width: fit-content;
+    color: red;
+
+    .text {
+      filter: blur(0.2vw);
+      width: fit-content;
+    }
+
+    &__icon {
+      width: VW(32);
+      height: VW(32);
+      position: absolute;
+      top: 20%;
+      left: 50%;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: right;
+  gap: 0.5em;
+
+  &-wrapper {
+    position: absolute;
+    right: VW(50);
+
+    &--bottom {
+      width: 17vw;
+      bottom: VW(20);
+    }
+  }
+
+  .link-anim {
+    align-items: flex-end;
+    &__icon {
+      width: 1.4em;
+    }
   }
 }
